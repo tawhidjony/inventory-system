@@ -1,8 +1,8 @@
 package com.inventory.system.stock;
 
 import com.inventory.system.stock.dto.StockInflowRequest;
+import com.inventory.system.stock.dto.StockUpdateRequest;
 import com.inventory.system.stock.entity.Stock;
-
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -36,4 +36,21 @@ public class StockController {
         return ResponseEntity.ok(stockService.getStocks(keyword, pageable));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Stock> getStockById(@PathVariable Long id) {
+        return ResponseEntity.ok(stockService.getStockById(id));
+    }
+
+    @PutMapping("/{id}")
+    @PreAuthorize("@customPermissionEvaluator.hasPermission(authentication, 'MANAGE_STOCK')")
+    public ResponseEntity<Stock> updateStock(@PathVariable Long id, @Valid @RequestBody StockUpdateRequest request) {
+        return ResponseEntity.ok(stockService.updateStock(id, request));
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("@customPermissionEvaluator.hasPermission(authentication, 'MANAGE_STOCK')")
+    public ResponseEntity<Void> deleteStock(@PathVariable Long id) {
+        stockService.deleteStock(id);
+        return ResponseEntity.noContent().build();
+    }
 }

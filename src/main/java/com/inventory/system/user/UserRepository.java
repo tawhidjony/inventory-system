@@ -1,11 +1,14 @@
 package com.inventory.system.user;
 
 import com.inventory.system.user.entity.User;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
+    Optional<User> findByEmailAndDeletedFalse(String email);
+    List<User> findAllByDeletedFalse();
+    Optional<User> findByIdAndDeletedFalse(Long id);
 }

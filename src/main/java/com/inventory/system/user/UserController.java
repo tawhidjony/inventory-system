@@ -1,8 +1,9 @@
 package com.inventory.system.user;
 
+import com.inventory.system.user.dto.CreateUserRequest;
+import com.inventory.system.user.dto.UpdateUserRequest;
 import com.inventory.system.user.dto.UpdateUserRoleRequest;
 import com.inventory.system.user.entity.User;
-
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,25 +14,45 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@PreAuthorize("@customPermissionEvaluator.hasPermission(authentication, 'MANAGE_USERS')")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    // সব ইউজার দেখতে (শুধুমাত্র সুপার এডমিন বা MANAGE_USERS পারমিশন হোল্ডার)
+    // নতুন ইউজার তৈরি (শুধুমাত্র সুপার এডমিন বা MANAGE_USERS পারমিশন হোল্ডার)
+    @PostMapping
+    public ResponseEntity<User> createUser(@Valid @RequestBody CreateUserRequest request) {
+        return ResponseEntity.ok(userService.createUser(request));
+    }
+
+    // সব ইউজার দেখতে
     @GetMapping
-    @PreAuthorize("@customPermissionEvaluator.hasPermission(authentication, 'MANAGE_USERS')")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.getUserById(id));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @Valid @RequestBody UpdateUserRequest request) {
+        return ResponseEntity.ok(userService.updateUser(id, request));
+    }
+
     // অন্য ইউজারের রোল/পারমিশন পরিবর্তন করতে (সুপার এডমিন কন্ট্রোল)
     @PutMapping("/{id}/roles")
-    @PreAuthorize("@customPermissionEvaluator.hasPermission(authentication, 'MANAGE_USERS')")
     public ResponseEntity<User> updateUserRoles(
             @PathVariable Long id,
             @Valid @RequestBody UpdateUserRoleRequest request) {
-        User updatedUser = userService.updateUserRoles(id, request);
-        return ResponseEntity.ok(updatedUser);
+        return ResponseEntity.ok(userService.updateUserRoles(id, request));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
     }
 }

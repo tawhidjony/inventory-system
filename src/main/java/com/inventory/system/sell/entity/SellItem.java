@@ -1,11 +1,12 @@
 package com.inventory.system.sell.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inventory.system.product.entity.Product;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import java.math.BigDecimal;
 
 @Entity
@@ -20,6 +21,8 @@ public class SellItem {
 
     @ManyToOne
     @JoinColumn(name = "sell_id")
+    @JsonIgnore // ব্যাক-রেফারেন্স JSON এ গেলে অসীম লুপ হয়
+    @ToString.Exclude
     private Sell sell;
 
     @ManyToOne

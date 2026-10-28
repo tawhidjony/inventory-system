@@ -24,12 +24,12 @@ public class ReportService {
 
     // ১. লো স্টক অ্যালার্ট রিপোর্ট (যেমন: স্টক ৫ বা তার কম)
     public List<Stock> getLowStockProducts(int threshold) {
-        return stockRepository.findByQuantityLessThanEqual(threshold);
+        return stockRepository.findByQuantityLessThanEqualAndDeletedFalse(threshold);
     }
 
     // ২. টোটাল সেলস এবং প্রফিট অ্যানালিসিস রিপোর্ট
     public Map<String, Object> getSalesAndProfitReport() {
-        List<Sell> allSells = sellRepository.findAll();
+        List<Sell> allSells = sellRepository.findAllByDeletedFalse();
 
         BigDecimal totalRevenue = BigDecimal.ZERO;
         BigDecimal totalCostOfGoods = BigDecimal.ZERO;
