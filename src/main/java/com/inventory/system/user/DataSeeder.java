@@ -15,11 +15,14 @@ import java.util.Set;
 @Component
 public class DataSeeder implements CommandLineRunner {
 
-    private static final List<String> PERMISSIONS = List.of(
+    // কোডে (@PreAuthorize) এই নামগুলো ব্যবহার হয়, তাই API দিয়ে এগুলো rename/delete করা যায় না
+    public static final List<String> PERMISSIONS = List.of(
             "READ_PRODUCT", "WRITE_PRODUCT", "DELETE_PRODUCT",
             "MANAGE_USERS", "MANAGE_STOCK", "MANAGE_CUSTOMER",
-            "CREATE_SELL", "READ_SELL"
+            "CREATE_SELL", "READ_SELL", "MANAGE_ROLES"
     );
+
+    public static final String SUPER_ADMIN_ROLE = "SUPER_ADMIN";
 
     @Autowired
     private UserRepository userRepository;
@@ -45,9 +48,9 @@ public class DataSeeder implements CommandLineRunner {
         }
 
         // ২. সুপার এডমিন রোল: সব পারমিশন সবসময় আপ-টু-ডেট থাকে
-        Role superAdminRole = roleRepository.findByName("SUPER_ADMIN").orElseGet(() -> {
+        Role superAdminRole = roleRepository.findByName(SUPER_ADMIN_ROLE).orElseGet(() -> {
             Role role = new Role();
-            role.setName("SUPER_ADMIN");
+            role.setName(SUPER_ADMIN_ROLE);
             return role;
         });
         superAdminRole.setPermissions(new HashSet<>(permissionRepository.findAll()));
