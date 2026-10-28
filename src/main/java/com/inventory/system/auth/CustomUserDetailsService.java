@@ -1,6 +1,6 @@
 package com.inventory.system.auth;
 
-import com.inventory.system.user.User;
+import com.inventory.system.user.entity.User;
 import com.inventory.system.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

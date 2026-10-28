@@ -1,5 +1,7 @@
 package com.inventory.system.user;
 
+import com.inventory.system.user.entity.Role;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

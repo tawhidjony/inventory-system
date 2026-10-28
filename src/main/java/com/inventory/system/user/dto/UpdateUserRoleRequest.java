@@ -1,4 +1,4 @@
-package com.inventory.system.user;
+package com.inventory.system.user.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;

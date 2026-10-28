@@ -1,5 +1,8 @@
 package com.inventory.system.user;
 
+import com.inventory.system.user.dto.UpdateUserRoleRequest;
+import com.inventory.system.user.entity.User;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

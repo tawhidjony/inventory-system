@@ -1,5 +1,8 @@
 package com.inventory.system.stock;
 
+import com.inventory.system.stock.dto.StockInflowRequest;
+import com.inventory.system.stock.entity.Stock;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,5 +1,4 @@
-package com.inventory.system.stock;
-
+package com.inventory.system.stock.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

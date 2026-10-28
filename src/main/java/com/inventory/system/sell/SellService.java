@@ -1,12 +1,16 @@
 package com.inventory.system.sell;
 
-import com.inventory.system.customer.Customer;
+import com.inventory.system.sell.dto.SellRequest;
+import com.inventory.system.sell.entity.Sell;
+import com.inventory.system.sell.entity.SellItem;
+
+import com.inventory.system.customer.entity.Customer;
 import com.inventory.system.customer.CustomerRepository;
-import com.inventory.system.product.Product;
+import com.inventory.system.product.entity.Product;
 import com.inventory.system.product.ProductRepository;
-import com.inventory.system.stock.Stock;
+import com.inventory.system.stock.entity.Stock;
 import com.inventory.system.stock.StockRepository;
-import com.inventory.system.user.User;
+import com.inventory.system.user.entity.User;
 import com.inventory.system.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

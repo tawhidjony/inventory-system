@@ -1,6 +1,8 @@
 package com.inventory.system.stock;
 
-import com.inventory.system.product.Product;
+import com.inventory.system.stock.entity.Stock;
+
+import com.inventory.system.product.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

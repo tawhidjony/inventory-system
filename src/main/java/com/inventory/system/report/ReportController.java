@@ -1,6 +1,6 @@
 package com.inventory.system.report;
 
-import com.inventory.system.stock.Stock;
+import com.inventory.system.stock.entity.Stock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

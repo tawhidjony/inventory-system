@@ -1,5 +1,9 @@
 package com.inventory.system.user;
 
+import com.inventory.system.user.entity.Permission;
+import com.inventory.system.user.entity.Role;
+import com.inventory.system.user.entity.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;

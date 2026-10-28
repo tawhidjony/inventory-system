@@ -1,7 +1,7 @@
-package com.inventory.system.sell;
+package com.inventory.system.sell.entity;
 
-import com.inventory.system.customer.Customer;
-import com.inventory.system.user.User;
+import com.inventory.system.customer.entity.Customer;
+import com.inventory.system.user.entity.User;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

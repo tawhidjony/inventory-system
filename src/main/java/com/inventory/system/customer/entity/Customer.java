@@ -1,6 +1,4 @@
-package com.inventory.system.stock;
-
-import com.inventory.system.product.Product;
+package com.inventory.system.customer.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,18 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "stocks")
+@Table(name = "customers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Stock {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-
-    private Integer quantity;
+    private String name;
+    private String phone;
+    private String email;
+    private String address;
 }

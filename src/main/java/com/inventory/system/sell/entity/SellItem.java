@@ -1,6 +1,6 @@
-package com.inventory.system.sell;
+package com.inventory.system.sell.entity;
 
-import com.inventory.system.product.Product;
+import com.inventory.system.product.entity.Product;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

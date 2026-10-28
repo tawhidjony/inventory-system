@@ -1,5 +1,8 @@
 package com.inventory.system.sell;
 
+import com.inventory.system.sell.dto.SellRequest;
+import com.inventory.system.sell.entity.Sell;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

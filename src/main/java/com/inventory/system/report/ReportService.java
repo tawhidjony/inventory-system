@@ -1,8 +1,8 @@
 package com.inventory.system.report;
 
-import com.inventory.system.sell.Sell;
-import com.inventory.system.sell.SellItem;
-import com.inventory.system.stock.Stock;
+import com.inventory.system.sell.entity.Sell;
+import com.inventory.system.sell.entity.SellItem;
+import com.inventory.system.stock.entity.Stock;
 import com.inventory.system.sell.SellRepository;
 import com.inventory.system.stock.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;

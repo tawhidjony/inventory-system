@@ -1,5 +1,8 @@
 package com.inventory.system.auth;
 
+import com.inventory.system.auth.dto.AuthResponse;
+import com.inventory.system.auth.dto.LoginRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -36,8 +39,3 @@ public class AuthController {
     }
 }
 
-class AuthResponse {
-    private String token;
-    public AuthResponse(String token) { this.token = token; }
-    public String getToken() { return token; }
-}

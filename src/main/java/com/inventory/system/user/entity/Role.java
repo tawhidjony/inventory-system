@@ -1,4 +1,4 @@
-package com.inventory.system.user;
+package com.inventory.system.user.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

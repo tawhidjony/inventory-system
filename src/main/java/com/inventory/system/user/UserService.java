@@ -1,5 +1,9 @@
 package com.inventory.system.user;
 
+import com.inventory.system.user.dto.UpdateUserRoleRequest;
+import com.inventory.system.user.entity.Role;
+import com.inventory.system.user.entity.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

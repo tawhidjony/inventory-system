@@ -1,5 +1,7 @@
 package com.inventory.system.customer;
 
+import com.inventory.system.customer.entity.Customer;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

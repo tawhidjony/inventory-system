@@ -1,7 +1,9 @@
 package com.inventory.system.product;
 
+import com.inventory.system.product.entity.Product;
 
-import com.inventory.system.stock.Stock;
+
+import com.inventory.system.stock.entity.Stock;
 import com.inventory.system.stock.StockRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
